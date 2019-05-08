@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from cleo import Command as BaseCommand, InputOption, ListInput
+from cleo import Command as BaseCommand
 from orator import DatabaseManager
 import yaml
 
@@ -20,12 +20,12 @@ class Command(BaseCommand):
     def configure(self):
         super(Command, self).configure()
 
-        if self.needs_config and not self.resolver:
-            # Checking if a default config file is present
-            if not self._check_config():
-                self.add_option('config', 'c',
-                                InputOption.VALUE_REQUIRED,
-                                'The config file path')
+        # if self.needs_config and not self.resolver:
+        #     # Checking if a default config file is present
+        #     if not self._check_config():
+        #         self.add_option('config', 'c',
+        #                         InputOption.VALUE_REQUIRED,
+        #                         'The config file path')
 
     def execute(self, i, o):
         """
